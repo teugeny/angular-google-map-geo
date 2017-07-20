@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <base href="/">
+    <title>Monitoring CRM</title>
+    <link href="/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <script src="/components/jquery/dist/jquery.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="/components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/components/angular/angular.min.js"></script>
+    <script src="/components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/js/routingConfig.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/filters.js"></script>
+    <script src="/js/directives.js"></script>
+  </head>
+  <body data-ng-cloak>
+    <nav data-ng-controller="NavCtrl" class="navbar navbar-default navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">Brand</a>
+        </div>
+        <div id="navigation" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li data-access-level="accessLevels.user" active-nav><a href="/dashboard">Dashboard</a></li>
+            <li data-access-level="accessLevels.admin" active-nav><a href="/admin">Admin</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li data-access-level="accessLevels.anon" active-nav><a href="/login">Login</a></li>
+            <li data-access-level="accessLevels.user"><a href="" data-ng-click="logout()">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div data-ui-view class="container-fluid"></div>
+    <div id="alertBox" data-ng-show="error" class="alert alert-danger">
+      <button type="button" data-ng-click="error = null;" class="close">&times;</button><strong>Oh no!&nbsp;</strong><span data-ng-bind="error"></span>
+    </div>
+  </body>
+</html>

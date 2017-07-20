@@ -1,0 +1,26 @@
+div(data-app="map-container", data-ng-controller="DashboardCtrl")
+    div.row
+        div.col-lg-6.col-md-6.col-xs-6
+            h1 Google Maps
+            p Google maps geo location api
+        div.col-lg-6.col-md-6.col-xs-6
+            form(ng-submit="AddressSearch()")
+                input.form-control(type="text", placeholder="address", data-ng-model="address")
+                button.btn.btn-default(type="submit") Search
+    div.map-container
+        div.row
+            div.col-lg-9.col-md-12.col-xs-12
+                div#map
+            div.col-lg-3.col-md-12.col-xs-12
+                div#map-info
+                    label(for="result_address") Result address
+                    div#result_address {{ req_map.address }}
+                    hr
+                    label(for="geo") Geo data
+                    div#geo {{ req_map.location }}
+                    div(data-access-level='accessLevels.admin')
+                        hr
+                        label(for="request_info") Request info
+                        div#reguest_info Time request
+                            span :{{ req_map.time }} ms
+    script(src='/js/map.js')

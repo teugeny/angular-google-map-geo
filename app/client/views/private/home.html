@@ -1,0 +1,37 @@
+
+<div data-app="map-container" data-ng-controller="DashboardCtrl">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-xs-6">
+      <h1>Google Maps</h1>
+      <p>Google maps geo location api</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-xs-6">
+      <form ng-submit="AddressSearch()">
+        <input type="text" placeholder="address" data-ng-model="address" class="form-control"/>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="map-container">
+    <div class="row">
+      <div class="col-lg-9 col-md-12 col-xs-12">
+        <div id="map"></div>
+      </div>
+      <div class="col-lg-3 col-md-12 col-xs-12">
+        <div id="map-info">
+          <label for="result_address">Result address</label>
+          <div id="result_address">{{ req_map.address }}</div>
+          <hr/>
+          <label for="geo">Geo data</label>
+          <div id="geo">{{ req_map.location }}</div>
+          <div data-access-level="accessLevels.admin">
+            <hr/>
+            <label for="request_info">Request info</label>
+            <div id="reguest_info">Time request<span>:{{ req_map.time }} ms</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/map.js"></script>
+</div>

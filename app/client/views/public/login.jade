@@ -1,0 +1,13 @@
+div.login-page
+    div.login-container
+        h1 Login to Your Account
+        form(ng-submit="login()", name="loginForm", role="login")
+            input.form-control(type="text", data-ng-model="email", placeholder="email", name="email", required, autofocus)
+            input.form-control(type="password", data-ng-model="password", placeholder="Password", name="password", required)
+            button.btn.btn-default(type="submit", data-ng-disabled="loginForm.$invalid") Log in
+            .checkbox
+                label(for="rememberme").checkbox
+                    input(type="checkbox", data-ng-model="rememberme", name="rememberme")
+                    | Remember me
+        div.login-help
+            a(href="") Forgot Password
