@@ -6,25 +6,36 @@ SPA: Angular, Sass, Grunt
 
 To run the server locally, open a terminal, and navigate to the directory you cloned the project to. 
 
-####If you have docker installed please run next command.
+#### If you have docker installed please run next command.
 ```
 docker-compose up -d
 ```
 Wait serveral seconds and then open http://localhost:3000/
 
-####If you have not docker installed but, you have Node/NPM and Bower installed. Then run the following commands: <br>
-#####Before start use dump.sql to create database. <br>
+#### If you have not docker installed but, you have Node/NPM and Bower installed. Then run the following commands: <br>
+##### Before start use dump.sql to create database. <br>
 ```
 npm install
 npm start
 ```
 Open in your browser http://localhost:8080/
 
-## Tests
+## Tests 
 To run automated server tests:
 ```
 npm test
 ```
+
+## Tests using docker
+If you want to start tests using docker container, you can connect to docker. For this run next command
+ 
+```
+docker exec -i -t 665b4a1e17b6 /bin/bash
+```
+Where 665b4a1e17b6 is ID of your container. And then run 
+ ```
+ npm test
+ ```
 
 ## Use
 Use second logins and passwords to authorisate
